@@ -21,6 +21,14 @@ fn startup(
                 .looking_at(Vec3::ZERO + (Vec3::Y * 50.0), Vec3::Y),
             ..default()
         },
+        FogSettings {
+            color: Color::rgba(0.15, 0.15, 0.15, 1.0),
+            falloff: FogFalloff::Linear {
+                start: 1500.0,
+                end: 2900.0,
+            },
+            ..default()
+        },
         MainCamera
     ));
 }

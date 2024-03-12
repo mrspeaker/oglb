@@ -1,0 +1,11 @@
+Model Information:
+* title:	Thumper Booster Kerbal
+* source:	https://sketchfab.com/3d-models/thumper-booster-kerbal-0e9290396bec4359944467b0d5350881
+* author:	Random-ish (https://sketchfab.com/Randomish)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Thumper Booster Kerbal" (https://sketchfab.com/3d-models/thumper-booster-kerbal-0e9290396bec4359944467b0d5350881) by Random-ish (https://sketchfab.com/Randomish) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Ocean - Surface
+* source:	https://sketchfab.com/3d-models/ocean-surface-648a41a46dfb4c208a41f2b79f85e63d
+* author:	ENOMIC (https://sketchfab.com/ENOMIC)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Ocean - Surface" (https://sketchfab.com/3d-models/ocean-surface-648a41a46dfb4c208a41f2b79f85e63d) by ENOMIC (https://sketchfab.com/ENOMIC) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)

@@ -33,9 +33,8 @@ fn update(
     let mut imp = Vec3::ZERO;
     let mut rot = Vec3::ZERO;
     if keys.pressed(KeyCode::KeyW) { imp += Vec3::from(t.up()) }
-    if keys.pressed(KeyCode::KeyS) { imp += Vec3::from(t.down()) }
-    if keys.pressed(KeyCode::KeyD) { rot += Vec3::Z }
-    if keys.pressed(KeyCode::KeyA) { rot -= Vec3::Z }
+    if keys.pressed(KeyCode::KeyQ) { rot -= Vec3::Z }
+    if keys.pressed(KeyCode::KeyE) { rot += Vec3::Z }
 
     if imp.length() > 0.0 {
         //t.translation += imp * dt * 10.0;
