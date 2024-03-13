@@ -23,7 +23,8 @@ fn main() {
             CameraPlugin,
             ScenePlugin,
             PlayerPlugin,
-            PhysicsPlugins::default()
+            PhysicsPlugins::default(),
+            PhysicsDebugPlugin::default()
         ))
         .run();
 }
