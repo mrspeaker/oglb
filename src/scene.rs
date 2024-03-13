@@ -16,6 +16,18 @@ fn setup(
     mut meshes: ResMut<Assets<Mesh>>,
     mut mats: ResMut<Assets<StandardMaterial>>
 ) {
+
+    macro_rules! scene {
+        ($path:expr, $x:expr, $y:expr, $z:expr$(, $scale:expr)?) => {
+            cmds.spawn(SceneBundle {
+                scene: assets.load($path),
+                transform: Transform::from_xyz($x, $y, $z)
+                    $(.with_scale(Vec3::ONE * $scale))?,
+                ..default()
+            });
+        }
+    }
+
     // Sun
     cmds.spawn(DirectionalLightBundle {
         directional_light: DirectionalLight {
@@ -36,21 +48,8 @@ fn setup(
         brightness: 1000.0,
     });
 
-    //ocean
-    cmds.spawn(SceneBundle {
-        scene: assets.load("ocean/scene.gltf#Scene0"),
-        transform: Transform::from_xyz(0.0, -180.0, -900.0)
-            .with_scale(Vec3::ONE * 300.0),
-        ..default()
-    });
-
-    // mountain
-        cmds.spawn(SceneBundle {
-        scene: assets.load("mountain/scene.gltf#Scene0"),
-        transform: Transform::from_xyz(0.0, 0.0, -3000.0)
-            .with_scale(Vec3::ONE * 1000.0),
-        ..default()
-    });
+    scene!("ocean/scene.gltf#Scene0", 0.0, -180.0, -900.0, 300.0);
+    scene!("mountain/scene.gltf#Scene0", 0.0, 0.0, -3000.0, 1000.0);
 
     // Droneships
     for i in 0..2 {
@@ -66,12 +65,7 @@ fn setup(
         ));
     }
 
-    cmds.spawn(SceneBundle {
-        scene: assets.load("booster/scene.gltf#Scene0"),
-        transform: Transform::from_xyz(80.0, 35.0 + 8.0, 0.0)
-            .with_scale(Vec3::ONE * 5.0),
-        ..default()
-    });
+    scene!("booster/scene.gltf#Scene0", 80.0, 35.0 + 8.0, 0.0, 5.0);
 
     // Rocket one
     cmds.spawn((
