@@ -28,10 +28,16 @@ fn setup(
         }
     }
 
-    model!("ocean/scene.gltf", 0.0, -180.0, -900.0, 300.0);
     model!("mountain/scene.gltf", 0.0, 0.0, -3000.0, 1000.0);
     model!("booster/scene.gltf", 80.0, 35.0 + 8.0, 0.0, 5.0);
     model!("booster/scene.gltf", 0.0, 35.0 + 8.0, 80.0);
+
+    cmds.spawn(SceneBundle {
+        scene: assets.load("ocean/scene.gltf#Scene0"),
+        transform: Transform::from_xyz(0.0, -30.0, -900.0)
+            .with_scale(Vec3::new(600.0, 50.0, 300.0)),
+        ..default()
+    });
 
     // Sun
     cmds.spawn(DirectionalLightBundle {

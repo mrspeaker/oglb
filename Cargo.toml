@@ -7,4 +7,5 @@ edition = "2021"
 
 [dependencies]
 bevy = "0.13.0"
+bevy_editor_pls = "0.8.1"
 bevy_xpbd_3d = "0.4.2"

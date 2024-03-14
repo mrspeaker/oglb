@@ -13,18 +13,27 @@ use player::PlayerPlugin;
 use states::GameState;
 use bevy::prelude::*;
 use bevy_xpbd_3d::prelude::*;
+use bevy_editor_pls::prelude::*;
 
 fn main() {
     App::new()
         .init_state::<GameState>()
         .add_plugins((
-            DefaultPlugins,
+            DefaultPlugins.set(WindowPlugin {
+                primary_window: Some(Window {
+                    title: "One Giant Loop".into(),
+                    resolution: (800., 350.).into(),
+                    ..default()
+                }),
+                ..default()
+            }),
             GamePlugin,
+//            EditorPlugin::default(),
             CameraPlugin,
             ScenePlugin,
             PlayerPlugin,
             PhysicsPlugins::default(),
-            PhysicsDebugPlugin::default()
+            PhysicsDebugPlugin::default(),
         ))
         .run();
 }
