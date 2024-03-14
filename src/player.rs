@@ -16,9 +16,9 @@ fn update(
     keys: Res<ButtonInput<KeyCode>>,
     mut mouse_events: EventReader<MouseMotion>,
     mouse_buttons: Res<ButtonInput<MouseButton>>,
-    mut q: Query<(&Transform, &mut LinearVelocity, &mut AngularVelocity), With<RocketOne>>)
+    mut q: Query<(&Transform, &mut LinearVelocity, &mut AngularVelocity, &mut ExternalImpulse), With<RocketOne>>)
 {
-    let Ok((t, mut vel, mut ang)) = q.get_single_mut() else {
+    let Ok((t, mut vel, mut ang, mut ext)) = q.get_single_mut() else {
         return;
     };
     let dt = time.delta_seconds();
@@ -33,16 +33,17 @@ fn update(
     let mut imp = Vec3::ZERO;
     let mut rot = Vec3::ZERO;
     if keys.pressed(KeyCode::KeyW) { imp += Vec3::from(t.up()) }
-    if keys.pressed(KeyCode::KeyQ) { rot -= Vec3::Z }
-    if keys.pressed(KeyCode::KeyE) { rot += Vec3::Z }
+    if keys.pressed(KeyCode::KeyA) { rot -= Vec3::Z }
+    if keys.pressed(KeyCode::KeyD) { rot += Vec3::Z }
 
     if imp.length() > 0.0 {
         //t.translation += imp * dt * 10.0;
         const SPEED: f32 = 20.0;
         //impulse.add_force(imp.normalize() * SPEED * dt);
-        vel.x += imp.x * SPEED * dt;
+        /*vel.x += imp.x * SPEED * dt;
         vel.y += imp.y * SPEED * dt;
-        vel.z += imp.z * SPEED * dt;
+        vel.z += imp.z * SPEED * dt;*/
+        ext.apply_impulse(t.rotation * Vec3::Y * 800.0);
     }
 
     if rot.length() > 0.0 {

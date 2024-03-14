@@ -22,13 +22,13 @@ fn main() {
             DefaultPlugins.set(WindowPlugin {
                 primary_window: Some(Window {
                     title: "One Giant Loop".into(),
-                    resolution: (800., 350.).into(),
+                    resolution: (1920.0/2.0, 1080.0/2.0).into(),
                     ..default()
                 }),
                 ..default()
             }),
             GamePlugin,
-//            EditorPlugin::default(),
+            EditorPlugin::default(),
             CameraPlugin,
             ScenePlugin,
             PlayerPlugin,
